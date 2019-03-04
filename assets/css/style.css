@@ -1,0 +1,54 @@
+.container-fluid {
+  padding: 0;
+}
+
+.bgimg {
+  /* background: linear-gradient(rgba(5, 71, 133, 0.7), rgba(6, 16, 71, 0.8)); */
+  background: url("../images/tag_bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.header {
+  color: rgb(28, 158, 209);
+  letter-spacing: 2rem;
+  font-family: "Anton", sans-serif;
+  font-weight: bolder;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+#timer {
+  border: 1px solid rgb(28, 158, 209);
+  border-radius: 10%;
+  letter-spacing: 0.5rem;
+  font-family: "Anton", sans-serif;
+  font-weight: bolder;
+  font-size: 2rem;
+  color: rgb(28, 158, 209);
+}
+
+#trivia-content {
+  border: 3px solid rgb(28, 158, 209);
+  letter-spacing: 0.1rem;
+  font-family: "Inconsolata", monospace;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: rgb(28, 158, 209);
+  height: 40vh;
+}
+
+.btn-custom {
+  background-color: rgb(28, 158, 209);
+  letter-spacing: 0.1rem;
+  font-family: "Inconsolata", monospace;
+  font-weight: bold;
+  color: yellow;
+}
+
+#trivia-body {
+  display: none;
+}
