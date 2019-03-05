@@ -52,3 +52,14 @@ h1 {
 #trivia-body {
   display: none;
 }
+
+#trivia-form {
+  border: 3px solid rgb(28, 158, 209);
+  border-radius: 5%;
+  letter-spacing: 0.1rem;
+  font-family: "Inconsolata", monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgb(28, 158, 209);
+  height: 40vh;
+}

@@ -36,24 +36,42 @@
       <div class="jumbotron text-center bg-transparent header p-0 py-2">
         <h1>TRIVIA</h1>
       </div>
-      <div id="trivia-choice">
-        <div class="row mx-0 mt-4">
-          <div class="column col-2"></div>
-          <div class="column col-8 text-center p-3">
-            <div class="row mt-5">
-              <div class="column col-4 text-center p-1">
-                <button class="btn btn-custom" id="answer1">Answer 1</button>
-              </div>
-              <div class="column col-4 text-center p-1">
-                <button class="btn btn-custom" id="answer2">Answer 1</button>
-              </div>
-              <div class="column col-4 text-center p-1">
-                <button class="btn btn-custom" id="answer3">Answer 1</button>
-              </div>
+      <div class="row mx-0 mt-5" id="trivia-choice">
+        <div class="column col-4"></div>
+        <div class="column col-4 p-3" id="trivia-form">
+          <div class="row mt-4 form-group">
+            <div class="column col-6 p-3">
+              <label for="categoryList">Category</label>
+            </div>
+            <div class="column col-6 p-3">
+              <select class="form-control" id="categoryList">
+                <option>SELECT</option>
+                <option>General Knowledge</option>
+                <option>Film</option>
+                <option>Science & Nature</option>
+                <option>Computers</option>
+                <option>Sports</option>
+                <option>History</option>
+                <option>Politics</option>
+              </select>
+            </div>
+            <div class="column col-6 p-3">
+              <label for="diffLevel">Difficulty Level</label>
+            </div>
+            <div class="column col-6 p-3">
+              <select class="form-control" id="diffLevel">
+                <option>SELECT</option>
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+              </select>
+            </div>
+            <div class="column col-12 p-3 text-center">
+              <button class="btn btn-custom" id="answer4">Get Started</button>
             </div>
           </div>
-          <div class="column col-2"></div>
         </div>
+        <div class="column col-4"></div>
       </div>
       <div id="trivia-body">
         <div class="row mx-0 mt-4">
