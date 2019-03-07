@@ -82,30 +82,32 @@
         </div>
         <div class="row mx-0 mt-5">
           <div class="column col-2"></div>
-          <div class="column col-8 text-center p-3" id="trivia-content">
+          <div class="column col-8 text-center p-3 m-2 d-flex flex-column justify-content-around" id="trivia-content">
             <span id="question"></span>
-            <div class="row mt-5">
-              <div class="column col-6 text-center p-3">
-                <button class="btn btn-custom answerButton" id="answer1"></button>
-              </div>
-              <div class="column col-6 text-center p-3">
-                <button class="btn btn-custom answerButton" id="answer2"></button>
-              </div>
-              <div class="column col-6 text-center p-3">
-                <button class="btn btn-custom answerButton" id="answer3"></button>
-              </div>
-              <div class="column col-6 text-center p-3">
-                <button class="btn btn-custom answerButton" id="answer4"></button>
-              </div>
-            </div>
+            <button class="btn btn-custom answerButton" id="answer1"></button>
+            <button class="btn btn-custom answerButton" id="answer2"></button>
+            <button class="btn btn-custom answerButton" id="answer3"></button>
+            <button class="btn btn-custom answerButton" id="answer4"></button>
           </div>
           <div class="column col-2"></div>
         </div>
-        <div class="row mx-0 mt-5">
+        <!-- <div class="row mx-0 mt-5">
           <div class="column col-12 text-center px-3">
-            <!-- <button class="btn btn-custom">Submit</button> -->
             <button class="btn btn-custom" id="resetButton">Reset</button>
           </div>
+        </div> -->
+      </div>
+      <div id="results-body">
+        <div class="row mt-5 pt-5 mx-0">
+          <div class="column col-4"></div>
+          <div class="column col-4 text-center" id="results-content">
+            <p>RESULTS</p>
+            <p>Total Questions: <span id="total-questions"></span></p>
+            <p>Correct Answers: <span id="correct-count"></span></p>
+            <p>Incorrect Answers: <span id="wrong-count"></span></p>
+            <p>Unanswered Questions: <span id="unanswered-count"></span></p>
+          </div>
+          <div class="column col-4"></div>
         </div>
       </div>
     </div>

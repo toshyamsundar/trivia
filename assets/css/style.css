@@ -38,7 +38,7 @@ h1 {
   font-weight: bold;
   font-size: 1.5rem;
   color: rgb(28, 158, 209);
-  height: 40vh;
+  height: 50vh;
 }
 
 .btn-custom {
@@ -62,4 +62,19 @@ h1 {
   font-size: 1.2rem;
   color: rgb(28, 158, 209);
   height: 40vh;
+}
+
+#results-body {
+  display: none;
+}
+
+#results-content {
+  border: 3px solid rgb(28, 158, 209);
+  letter-spacing: 0.1rem;
+  font-family: "Inconsolata", monospace;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: rgb(28, 158, 209);
+  height: 40vh;
+  padding: 1rem;
 }
