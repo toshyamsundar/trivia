@@ -78,3 +78,11 @@ h1 {
   height: 40vh;
   padding: 1rem;
 }
+
+#category {
+  letter-spacing: 0.1rem;
+  font-family: "Inconsolata", monospace;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: rgb(28, 158, 209);
+}

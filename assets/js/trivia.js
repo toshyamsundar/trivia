@@ -36,11 +36,10 @@ $(document).ready(function() {
       triviaAnswers = tResponseObj.results[i].incorrect_answers.slice();
       triviaAnswers.push(tResponseObj.results[i].correct_answer);
       //Shuffle only if multiple answers. Not required in case of True or False questions
-      if (tResponseObj.results[i].type === "multiple") {
-        tResponseObj.results[i].all_answers = shuffleAnswers(triviaAnswers.slice());
-      } else {
-        tResponseObj.results[i].all_answers = triviaAnswers;
-      }
+      // if (tResponseObj.results[i].type === "multiple") {
+      tResponseObj.results[i].all_answers = shuffleAnswers(triviaAnswers.slice());
+      // } else {
+      //   tResponseObj.results[i].all_answers = triviaAnswers;
     }
     return tResponseObj;
   };
@@ -102,10 +101,10 @@ $(document).ready(function() {
       setHTML("#answer3", currTrivia.results[index].all_answers[2]);
       setHTML("#answer4", currTrivia.results[index].all_answers[3]);
     } else {
-      // setHTML("#answer1", currTrivia.results[index].all_answers[0]);
-      // setHTML("#answer2", currTrivia.results[index].all_answers[1]);
-      setHTML("#answer1", "True");
-      setHTML("#answer2", "False");
+      setHTML("#answer1", currTrivia.results[index].all_answers[0]);
+      setHTML("#answer2", currTrivia.results[index].all_answers[1]);
+      // setHTML("#answer1", "True");
+      // setHTML("#answer2", "False");
       hideSection("#answer3");
       hideSection("#answer4");
     }
@@ -161,14 +160,19 @@ $(document).ready(function() {
     $.ajax({
       url: qURL,
       method: "GET"
-    }).then(function(responseObj) {
-      triviaObj = consolidateAnswers(responseObj);
-      // console.log(triviaObj);
-      hideSection("#trivia-choice");
-      showSection("#trivia-body");
+    })
+      .then(function(responseObj) {
+        triviaObj = consolidateAnswers(responseObj);
+        console.log(triviaObj);
+        hideSection("#trivia-choice");
+        showSection("#trivia-body");
 
-      showTrivia(triviaObj);
-    });
+        showTrivia(triviaObj);
+      })
+      .catch(function(err) {
+        console.log("Error in getting a response");
+        location.reload();
+      });
   };
 
   // var disableAnswers = () => {
@@ -255,6 +259,7 @@ $(document).ready(function() {
     var difficultyLevel = getDifficultyLevel().toLowerCase();
     var queryURL;
 
+    $("#category").text($("#categoryList option:selected").text());
     if (category.toLowerCase() === "select" || difficultyLevel.toLowerCase() === "select") {
       console.log("Wrong choices made");
     } else {
