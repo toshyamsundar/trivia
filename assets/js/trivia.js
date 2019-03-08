@@ -11,6 +11,7 @@ $(document).ready(function() {
   var unansweredCount = 0;
   var correctBtnClass;
   var correctBtnElem;
+  var disableButton = false;
 
   //Function to shuffle the answers, as the correct one is always appended at the end
   var shuffleAnswers = answers => {
@@ -90,6 +91,7 @@ $(document).ready(function() {
   //Function to display the questions one after the other
   var showTrivia = currTrivia => {
     correctAnswer = currTrivia.results[index].correct_answer;
+    disableButton = false;
     // console.log("Question: " + currTrivia.results[index].question);
     // console.log("Correct Answer: " + correctAnswer);
     setHTML("#question", currTrivia.results[index].question);
@@ -238,9 +240,12 @@ $(document).ready(function() {
 
   //Callback function for clicking on the button click
   $(".answerButton").on("click", function() {
-    var currButton = $(this);
-    clearInterval(timerInterval);
-    checkAnswer("#trivia-content", currButton);
+    if (!disableButton) {
+      var currButton = $(this);
+      disableButton = true;
+      clearInterval(timerInterval);
+      checkAnswer("#trivia-content", currButton);
+    }
   });
 
   //Return the value of the selected category
