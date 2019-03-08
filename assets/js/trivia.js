@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var timer = 10;
+  var timer = 15;
   var index = 0;
   var timerInterval;
   var displayTimer;
@@ -9,6 +9,8 @@ $(document).ready(function() {
   var correctCount = 0;
   var wrongCount = 0;
   var unansweredCount = 0;
+  var correctBtnClass;
+  var correctBtnElem;
 
   //Function to shuffle the answers, as the correct one is always appended at the end
   var shuffleAnswers = answers => {
@@ -100,8 +102,10 @@ $(document).ready(function() {
       setHTML("#answer3", currTrivia.results[index].all_answers[2]);
       setHTML("#answer4", currTrivia.results[index].all_answers[3]);
     } else {
-      setHTML("#answer1", currTrivia.results[index].all_answers[0]);
-      setHTML("#answer2", currTrivia.results[index].all_answers[1]);
+      // setHTML("#answer1", currTrivia.results[index].all_answers[0]);
+      // setHTML("#answer2", currTrivia.results[index].all_answers[1]);
+      setHTML("#answer1", "True");
+      setHTML("#answer2", "False");
       hideSection("#answer3");
       hideSection("#answer4");
     }
@@ -116,7 +120,7 @@ $(document).ready(function() {
     // Time interval for the current question
     timerInterval = setInterval(function() {
       // Continue setting the timer until 0;
-      if (timer > 0) {
+      if (timer >= 0) {
         setTimer(timer);
         timer--;
       } else {
@@ -124,17 +128,29 @@ $(document).ready(function() {
         clearInterval(timerInterval);
         unansweredCount++;
         //Reset the timer for the next question
-        timer = 10;
+        timer = 15;
+
+        $("#trivia-content")
+          .children("button")
+          .each(function() {
+            if ($(this).attr("data-correct") === "true") {
+              correctBtnElem = $(this);
+              correctBtnClass = "bg-success";
+              correctBtnElem.addClass(correctBtnClass);
+            }
+          });
+
         //Call the showTrivia recursively until the last question after a timeout
         if (index < currTrivia.results.length) {
           timeOut = setTimeout(function() {
+            correctBtnElem.removeClass(correctBtnClass);
             showTrivia(triviaObj);
           }, 1500);
         } else {
           //Else call ShowResults after all the questions are done
           timeOut = setTimeout(function() {
             showResults();
-          }, 1000);
+          }, 1500);
         }
       }
     }, 1000); //1 Second timer for the display at the top
@@ -173,8 +189,6 @@ $(document).ready(function() {
 
   // Function to the check the user clicked answer & highlight whether it is correct or wrong
   var checkAnswer = (triviaContent, currButton) => {
-    var correctBtnClass;
-    var correctBtnElem;
     var newBtnClass;
     var wrongChoice = false;
 
@@ -205,7 +219,7 @@ $(document).ready(function() {
     timeOut = setTimeout(function() {
       //Call the showTrivia function again if there are more questions
       if (index < triviaObj.results.length) {
-        timer = 10;
+        timer = 15;
         if (wrongChoice) {
           correctBtnElem.removeClass(correctBtnClass);
         }
@@ -215,7 +229,7 @@ $(document).ready(function() {
         //if no more questions, show the results summary
         showResults();
       }
-    }, 1000);
+    }, 1500);
   };
 
   //Callback function for clicking on the button click
@@ -249,15 +263,8 @@ $(document).ready(function() {
     }
   });
 
-  //Get back to the
+  //Reload the page on clicking the Play Again button on the results page
   $("#reset").on("click", function() {
-    // timer = 10;
-    // index = 0;
-    // correctCount = 0;
-    // wrongCount = 0;
-    // unansweredCount = 0;
-    // hideSection("#results-body");
-    // showSection("#trivia-choice");
     location.reload();
   });
 });
