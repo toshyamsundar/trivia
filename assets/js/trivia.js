@@ -110,7 +110,6 @@ $(document).ready(function() {
       hideSection("#answer3");
       hideSection("#answer4");
     }
-    // enableAnswers();
 
     // console.log("Index: " + index);
     // console.log("Trivia Length: " + currTrivia.results.length);
@@ -165,7 +164,7 @@ $(document).ready(function() {
     })
       .then(function(responseObj) {
         triviaObj = consolidateAnswers(responseObj);
-        console.log(triviaObj);
+        // console.log(triviaObj);
         hideSection("#trivia-choice");
         showSection("#trivia-body");
 
@@ -176,22 +175,6 @@ $(document).ready(function() {
         location.reload();
       });
   };
-
-  // var disableAnswers = () => {
-  //   $("#trivia-content")
-  //     .children("button")
-  //     .each(function() {
-  //       $(this).prop("disabled", true);
-  //     });
-  // };
-
-  // var enableAnswers = () => {
-  //   $("#trivia-content")
-  //     .children("button")
-  //     .each(function() {
-  //       $(this).prop("disabled", false);
-  //     });
-  // };
 
   // Function to the check the user clicked answer & highlight whether it is correct or wrong
   var checkAnswer = (triviaContent, currButton) => {
@@ -207,7 +190,6 @@ $(document).ready(function() {
       newBtnClass = "bg-danger";
       wrongChoice = true;
       wrongCount++;
-      // disableAnswers();
       // Also set the color of the correct answer to green
       $(triviaContent)
         .children("button")
