@@ -4,9 +4,9 @@
 
 .bgimg {
   /* background: linear-gradient(rgba(5, 71, 133, 0.7), rgba(6, 16, 71, 0.8)); */
-  background: url("../images/tag_bg.jpeg");
+  background: url("../images/new_bg.jpeg");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   height: 100vh;
 }
 
