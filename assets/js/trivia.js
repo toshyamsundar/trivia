@@ -88,10 +88,20 @@ $(document).ready(function() {
     $("#unanswered-count").text(unansweredCount);
   };
 
+  var resetCorrectFlag = () => {
+    $("#trivia-content")
+      .children("button")
+      .each(function() {
+        $(this).attr("data-correct", "false");
+      });
+  };
+
   //Function to display the questions one after the other
   var showTrivia = currTrivia => {
     correctAnswer = currTrivia.results[index].correct_answer;
     disableButton = false;
+
+    resetCorrectFlag();
     // console.log("Question: " + currTrivia.results[index].question);
     // console.log("Correct Answer: " + correctAnswer);
     setHTML("#question", currTrivia.results[index].question);
